@@ -1,38 +1,41 @@
-var Contacts = Backbone.model.extend({
+var Contacts = Backbone.Model.extend({
 	initialize:function () {
 		console.log ("A new list has been created");
 	},
+	  defaults:{
+      genre:"Famous Scientist"
+      },
 	_parse_class_name:"Contacts",
 	idAttribute:"objectId"
-	}
-});
+	
+	});
 
-var Router = Backbone.Router.extend ({
+	var Router = Backbone.Router.extend ({
 	initialize:function(){
 		Backbone.history.start({pushState:true});
-	};
+	},
 	routes:{
-	"Name":"Name";
+	"Name":"Name",
 	"Location":"Location",
 	"mumber":"Number",
 	"Email":"Email",
 	"":"index"
 	}
-});
+	});
 
-var router = new Router();
+	var router = new Router();
 
-router.on('route:Name' , function(objectId){
+	router.on('route:Name' , function(objectId){
 	var Name = new Name({objectId:objectId});
 	Name.fetch();
 	console.log(Name);
-});
+	});
 
-router.on('route:Name' , function(){
+	router.on('route:Name' , function(){
 	console.log("Name page");
-});
+	});
 
-router.on('route:Location', function(){
+	router.on('route:Location', function(){
     console.log('Location page');
     $("a").css({color:"black"});
     });
@@ -61,18 +64,18 @@ router.on('route:Location', function(){
     var Name = list.get("Name");
 
 
-var Name = Backbone.Collection.extend({
+	var Name = Backbone.Collection.extend({
   model: Name,
   _parse_class_name: "list"
-});
+	});
 
-var NamesCollection = new Name();
-
-list.save(null, {
+	var NamesCollection = new Name();
+/*
+	list.save(null, {
   success: function(resp) {
     console.log(resp)
-
-NameCollection.fetch({
+*/
+	NamesCollection.fetch({
       success: function(resp) {
         console.log("success: ", resp);
       }, error: function (err) {
@@ -82,13 +85,8 @@ NameCollection.fetch({
     },
     error: function (err) {
     console.log(err)
-  }
-});
-
-
-
-
-
+  	  }
+	});
 
 
 
