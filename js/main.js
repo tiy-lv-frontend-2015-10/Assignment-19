@@ -18,7 +18,14 @@
 //     }
 // });
 //
-
+$(document).ready(function(){
+	$("body").on('click', "a", function(e){
+  e.preventDefault();
+  var href = $(this).attr('href');
+	console.log(href);
+  // href = href.substr(1);
+  router.navigate(href, {trigger:true});
+	});
 
 
 var Contact = Backbone.Model.extend( {
@@ -35,7 +42,7 @@ var Contact = Backbone.Model.extend( {
 	},
 
 	_parse_class_name: "Contact",
-	idAttribute: "objectId"
+	// idAttribute: "objectId"
 });
 
 
@@ -48,13 +55,12 @@ var contactList = new Contacts();
 
 contactList.fetch({
       success: function(resp) {
-        console.log("success: ", resp);
-      var contactData = {
-        person: resp.models
-      };
+      console.log(resp.toJSON());
+			var contactData = {person: resp.toJSON()};
+			console.log(contactData);
       var contactTemplate = $('#people').text();
       var contactHTML = Mustache.render(contactTemplate, contactData);
-      $('#index-side').html(contactHTML);
+      $('#contact-index').html(contactHTML);
 
       }, error: function (err) {
         console.log("error: ", err);
@@ -74,31 +80,16 @@ contactList.fetch({
 		var router = new Router();
 
     router.on('route:person', function(objectId) {
-      var peep = new Contact({objectId: objectId});
-      peep.fetch({
-        success: function(resp){
-          console.log("success", resp);
-          var peepResponse = {
-            peep: resp
-           };
+          var peepData = {"peep": contactList.get(objectId).toJSON()};
           var peepTemplate = $('#peep').text();
-          var peepHTML = Mustache.render(peepTemplate, peepResponse);
-          $('#page-display').html(peepHTML);
-        },
-        error: function(err){
-          console.log(err);
-        }
-      });
+          var peepHTML = Mustache.render(peepTemplate, peepData);
+          $('#single-contact').html(peepHTML);
+					$('#contact-index').hide();
+					$('#single-contact').show();
+			});
 
-    });
-
-	router.on('route:index', function () {
-      console.log('home page');
-    });	
-
-	$("a").on('click', function(e){
-  e.preventDefault();
-  var href = $(this).attr('href');
-  href = href.substr(1);
-  router.navigate(href, {trigger:true});
-	});
+		router.on('route:index', function () {
+			$('#contact-index').show();
+			$('#single-contact').hide();
+	    });
+});

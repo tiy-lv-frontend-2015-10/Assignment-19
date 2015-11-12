@@ -8,8 +8,9 @@
 </head>
 <body>
 	<div id='container'>
-		<div id='index-side'>list</div>
-		<div id='page-display'>item</div>
+		<div id="title-bar"><h2><a href="/">Folks I Know</a></h2></div>
+		<div id='contact-index'></div>
+		<div id='single-contact'></div>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
@@ -21,20 +22,21 @@
   <script src="js/main.js"></script>
 <!-- <script src="js/lib/require.js" data-main="js/main"></script> -->
 <script type="x-tmpl=mustache" id="people">
-<div id="title-left"><h2>Folks I Know</h2></div>
+
 	{{#person}}
-		<p class="contact-name"><span class="fa fa-user"</span><a href="/person/{{attributes.objectId}}">{{attributes.first_name}} {{attributes.last_name}}</a></p>
+		<p class="contact-name"><span class="fa fa-user"></span><a href="person/{{objectId}}">{{first_name}} {{last_name}}</a></p>
 	{{/person}}
 </script>
 <script type="x-tmpl-mustache" id="peep">
-  {{#peep}}
-		<ul>
-			<li class="peep-info">{{attributes.first_name}} {{attributes.last_name}}</li>
-			<li class="peep-info">{{attributes.email}}</li>
-			<li class="peep-info">{{attributes.phone_number}}</li>
-      <li class="peep-info">{{attributes.city}}, {{attributes.state}}</li>
-		</ul>
- 	{{/peep}}
-  </script>
+		<div id="biz-card"><img src="facebookgeneric.jpg" id="peeper"/></div>
+		<div id="info-holder">
+		<p class="peep-info"><span class="fa fa-user icon"></span><span class="vital">{{peep.first_name}} {{peep.last_name}}</span></p>
+		<p class="peep-info"><span class="fa fa-envelope icon"></span><span class="vital">{{peep.email}}</span></p>
+		<p class="peep-info"><span class="fa fa-phone icon"></span><span class="vital">{{peep.phone_number}}</span></p>
+		<p class="peep-info"><span class="fa fa-map-pin icon"></span><span class="vital">{{peep.city}}, {{peep.state}}</span></p>
+		</div>
+
+
+ </script>
 </body>
 </html>
