@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<div id="container">
+	<div id="myPeeps">
+	<h1>My Peeps</h1>
+	</div>
+	<div id="contactHeader">
+		<span id="arrow"><a href="/"><span class="typicons-left"></span></a></span>
+		<img id="defaultImg" src="assets/default.png">
+	</div>
+	<div id="contactsDiv"></div>
+	<div id="personDiv"></div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.js"></script>
+<script src="backbone-parse.js"></script>
+<script src="main.js"></script>
+
+
+<script id="contactTemplate" type="x-tmpl-mustache">
+	{{#data}}
+	<ul>
+	<li id="nameTemp"><a href="/name/{{objectId}}">{{fName}} {{lName}}</a></li>
+	</ul>
+	{{/data}}
+</script>
+
+<script id="personTemplate" type="x-tmpl-mustache">
+	{{#data}}
+	<ul>
+	<li class="person"><span class="typicons-user icons"></span><span>{{fName}} {{lName}}</span</li>
+	<li class="person"><span class="maki-post icons"></span><span>{{email}}<span></li>
+	<li class="person"><span class="typicons-mobile icons"></span><span>{{phoneNumber}}</span></li>
+	<li class="person"><span class="typicons-world icons"></span><span>{{location}}</span></li>
+	</ul>
+	{{/data}}
+</script>
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

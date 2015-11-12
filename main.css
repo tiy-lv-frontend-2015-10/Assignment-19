@@ -1,0 +1,110 @@
+@import url(http://weloveiconfonts.com/api/?family=maki|typicons|zocial);
+
+/* maki */
+[class*="maki-"]:before {
+  font-family: 'maki', sans-serif;
+}
+
+/* typicons */
+[class*="typicons-"]:before {
+  font-family: 'Typicons', sans-serif;
+}
+[class*="typicons-left"]:before {
+  font-family: 'Typicons', sans-serif;
+  font-size: 40px;
+  color:#000;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+
+
+
+#myPeeps {
+	background: #81BC39;
+	padding: 0;
+	margin:0;
+	height:60px;
+	position: relative;
+	color:#fff;
+}
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 22px;
+	position: relative;
+	top:20px;
+	left:15px;
+}
+
+#container {
+	width:600px;
+}
+ul {
+	padding:0;
+	margin:0;
+}
+li {
+	background-color: #F7F7F7;
+	list-style:none;
+	height:60px;
+	border-bottom:1px solid #E7E7E7;
+	position: relative;
+	padding-left:15px;
+}
+
+#nameTemp a {
+	text-decoration: none;
+	color:black;
+	padding-left:10px;
+
+}
+
+
+#nameTemp:before {
+	background-image:url('assets/default2.png');
+	border-radius:20px;
+	content: "";
+	display: inline-block;
+	position: relative;
+	top:10px;
+  	width: 40px;
+  	height: 40px;
+}
+
+#contactHeader {
+	background: #A7D076;
+	height:200px;
+	display: none;
+	position: relative;
+}
+
+.person span {
+	position: relative;
+	top:20px;
+}
+
+.icons {
+	padding-right: 10px;
+}
+
+#arrow {
+	position: relative;
+  	left:20px;
+  	top:20px;
+}
+
+#defaultImg {
+	border-radius:100px;
+	position:absolute;
+	top:20px;
+	left:210px;
+}
+
+
+
