@@ -1,0 +1,19 @@
+a{text-decoration: none;}
+
+a:visited {
+    color: black;
+}
+h1{margin-left: 100px;
+font-family: 'Orbitron', sans-serif;}
+
+#main li{ list-style: none;
+	padding: 10px;
+border: 1px solid black;
+width: 300px;
+background-color: lightgrey;
+font-family: 'Orbitron', sans-serif;
+border-color:yellow;
+}
+
+
+
