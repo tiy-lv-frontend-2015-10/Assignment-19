@@ -29,10 +29,6 @@ var ContactsCollection = new Contacts();
 
 ContactsCollection.fetch({
   success: function(resp) {
-    var dataObj = {"data": resp.toJSON()};
-    var contactTemplate = $("#contactTemplate").text();
-    var contactHTML = Mustache.render(contactTemplate, dataObj);
-    $("#contactList").html(contactHTML);
 
     var data2obj = {"data": resp.toJSON()};
     var nameTemplate = $("#nameTemplate").text();
@@ -59,8 +55,22 @@ var router = new Router();
 
 router.on('route:name', function(objectId) {
   var name = new Contact({objectId: objectId});
-  name.fetch();
+  name.fetch({
+    success: function(resp){
+    var dataObj = {"data": resp.toJSON()};
+    var contactTemplate = $("#contactTemplate").text();
+    var contactHTML = Mustache.render(contactTemplate, dataObj);
+    $("#contactList").html(contactHTML);
+    $("#contacts").hide();
+    $("#contactList").show();
+    }
+  });
   console.log(name);
 });
 
+router.on('route:index', function(){
+  $("#contactList").hide();
+  $("#contacts").show();
+
+});
 
