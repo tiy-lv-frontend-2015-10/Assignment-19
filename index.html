@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>HitMeUp!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="main.css" />
 </head>
 <body>
@@ -20,8 +21,9 @@
   <script src="js/main.js"></script>
 <!-- <script src="js/lib/require.js" data-main="js/main"></script> -->
 <script type="x-tmpl=mustache" id="people">
+<div id="title-left"><h2>Folks I Know</h2></div>
 	{{#person}}
-		<p><a href="/person/{{attributes.objectId}}">{{attributes.first_name}} {{attributes.last_name}}</a></p>
+		<p class="contact-name"><span class="fa fa-user"</span><a href="/person/{{attributes.objectId}}">{{attributes.first_name}} {{attributes.last_name}}</a></p>
 	{{/person}}
 </script>
 <script type="x-tmpl-mustache" id="peep">

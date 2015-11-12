@@ -18,18 +18,7 @@
 //     }
 // });
 //
-// define([
-//   'player',
-//   'gameObjects'
-// ], function (
-//   player,
-//   gameObjects
-// ){
-//   player.init();
-//   gameObjects.init();
-//   player.destroy();
-// });
-//
+
 
 
 var Contact = Backbone.Model.extend( {
@@ -48,15 +37,6 @@ var Contact = Backbone.Model.extend( {
 	_parse_class_name: "Contact",
 	idAttribute: "objectId"
 });
-
-
-
-
-
-
-
-
-
 
 
 var Contacts = Backbone.Collection.extend({
@@ -111,6 +91,10 @@ contactList.fetch({
       });
 
     });
+
+	router.on('route:index', function () {
+      console.log('home page');
+    });	
 
 	$("a").on('click', function(e){
   e.preventDefault();
