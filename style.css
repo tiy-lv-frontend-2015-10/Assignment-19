@@ -1,0 +1,10 @@
+#names{
+	list-style: none;
+	width: 15em;
+	font-size: 30px;
+}
+#names li{
+	border: 1px solid black;
+	width: 15em;
+	height: 50px;
+}
