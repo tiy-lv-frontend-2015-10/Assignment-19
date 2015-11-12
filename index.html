@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>test</h1>
-<a href="/name">name</a>
+
 
 <div id="contactsDiv"></div>
 <div id="personDiv"></div>
@@ -21,10 +21,11 @@
 <script src="backbone-parse.js"></script>
 <script src="main.js"></script>
 
+
 <script id="contactTemplate" type="x-tmpl-mustache">
 	{{#data}}
 	<ul>
-	<li>{{fName}} {{lName}}</li>
+	<li><a href="/name/{{objectId}}">{{fName}} {{lName}}</a></li>
 	</ul>
 	{{/data}}
 </script>
@@ -39,5 +40,21 @@
 	</ul>
 	{{/data}}
 </script>
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

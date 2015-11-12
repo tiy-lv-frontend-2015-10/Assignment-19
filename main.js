@@ -1,3 +1,7 @@
+$(document).ready(function(){
+
+
+
 var Contact = Backbone.Model.extend({
   initialize: function () {
     console.log("A new contact has been created");
@@ -52,17 +56,13 @@ var contact5 = new Contact({
 
 ContactCollection.fetch({
 	success: function(resp) {
-
 		//contacts
 		var contactsObj = {'data':resp.toJSON()};
 		var template=$('#contactTemplate').text();
 		var contactsHtml = Mustache.render(template,contactsObj);
 		$("#contactsDiv").html(contactsHtml);
 		//person
-		var personObj = {'data':resp.toJSON()};
-		var template2=$('#personTemplate').text();
-		var personHtml = Mustache.render(template2,personObj);
-		$("#personDiv").html(personHtml);
+		
 
 
 		},
@@ -74,22 +74,44 @@ ContactCollection.fetch({
 
 //router//
 
-var Router= Backbone.Router.extend({
-	initialize:function() {
-		Backbone.history.start({pushState: true});
-
-	},
-
-	routes: {
-		"name/:objectId":"name"
-	}
+var Router = Backbone.Router.extend({
+  initialize: function () {
+    Backbone.history.start({pushState: true});
+  },
+  routes: {
+    "name/:objectId":"name",
+    "":"index",
+    "test":"test"
+  }
 });
 
 var router = new Router();
 
-router.on('route:name', function(objectId){
-	var name = new Contact({objectId,objectId});
-})
+router.on('route:name', function(objectId) {
+  var name = new Contact({objectId: objectId});
+  name.fetch({
+  	success: function(resp){
+  		var personObj = {'data':resp.toJSON()};
+		var template2=$('#personTemplate').text();
+		var personHtml = Mustache.render(template2,personObj);
+		$("#personDiv").html(personHtml);
+  	}
+  })
+  console.log(name);
+
+  
+ 
+});
+
+
+
+
+$("body").on('click',"a", function(e){
+  e.preventDefault();
+  var href = $(this).attr('href');
+  href = href.substr(1);
+  router.navigate(href, {trigger:true});
+});
 
 
 
@@ -98,4 +120,4 @@ router.on('route:name', function(objectId){
 
 
 
-
+});
