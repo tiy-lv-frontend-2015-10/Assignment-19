@@ -1,92 +1,87 @@
+$(document).ready(function(){
 var Contacts = Backbone.Model.extend({
-	initialize:function () {
-		console.log ("A new list has been created");
-	},
-	  defaults:{
-      genre:"Famous Scientist"
+    initialize: function () {
+      console.log ("A new list has been created");
       },
-	_parse_class_name:"Contacts",
-	idAttribute:"objectId"
-	
-	});
+     defaults:{
+      Name: null,
+      Email: null,
+      Location: null,
+      Number: null
+      },
+      _parse_class_name:"list"
 
-	var Router = Backbone.Router.extend ({
-	initialize:function(){
-		Backbone.history.start({pushState:true});
-	},
-	routes:{
-	"Name":"Name",
-	"Location":"Location",
-	"mumber":"Number",
-	"Email":"Email",
-	"":"index"
-	}
-	});
 
-	var router = new Router();
+    });
+  
 
-	router.on('route:Name' , function(objectId){
-	var Name = new Name({objectId:objectId});
-	Name.fetch();
-	console.log(Name);
-	});
+    var List = new Contacts();
 
-	router.on('route:Name' , function(){
-	console.log("Name page");
-	});
+var Lists = Backbone.Collection.extend({
+  model: Contacts,
+  _parse_class_name: "list"
+});
 
-	router.on('route:Location', function(){
-    console.log('Location page');
-    $("a").css({color:"black"});
+var ListsCollection = new Lists();
+
+
+ListsCollection.fetch({
+      success: function(resp) {
+        var taco = {"meat":resp.toJSON()};
+        var mexicoTemplate = $("#mexicoTemplate").text();
+        var mexicoHTML = Mustache.render(mexicoTemplate,taco);
+        $("#main").html(mexicoHTML);
+        console.log("success: ", resp);
+      }, error: function (err) {
+        console.log("error: ", err);
+      }
+    });
+
+    var Router = Backbone.Router.extend ({
+      initialize:function(){
+        Backbone.history.start({pushState:true});
+      },
+      routes:{
+        "name/:objectId":"Name",
+        "":"index"
+      }
     });
 
 
-   router.on('route:Number' , function(){
-      console.log("Number page");
+    var router = new Router();
+
+    router.on('router:name', function(objectId){
+    var person = new Contacts({objectId:objectId});
+    person.fetch({
+      success: function(resp){
+        var personInfo = {'persons': resp.toJSON()};
+        var personTemplate = $("#personTemplate").text();
+        var personHTML = Mustache.render(personTemplate , personInfo);
+        $("#info").html(personHTML);
+        $("#main").hide();
+        $("#info").show();
+      },error:function(err){
+        console.log("error " , err);
+      }
+    })
     });
 
-  $("a").on('click', function(e){
+    router.on('router:index', function(){
+      $("#main").show();
+      $("#info").hide();
+    });
+
+  $("body").on('click', 'a', function(e){
     e.preventDefault();
     var href = $(this).attr('href');
     href = href.substr(1);
     router.navigate(href,{trigger:true});
   });
+});
 
 
-    var list = new Contacts();
-
-    list.set("Location", "Las Vegas")
-    list.set({
-    Name:"Neomi",
-    Number:"702-443-4707",
-    });
-
-    var Name = list.get("Name");
 
 
-	var Name = Backbone.Collection.extend({
-  model: Name,
-  _parse_class_name: "list"
-	});
-
-	var NamesCollection = new Name();
-/*
-	list.save(null, {
-  success: function(resp) {
-    console.log(resp)
-*/
-	NamesCollection.fetch({
-      success: function(resp) {
-        console.log("success: ", resp);
-      }, error: function (err) {
-        console.log("error: ", err);
-      }
-    })
-    },
-    error: function (err) {
-    console.log(err)
-  	  }
-	});
 
 
 
