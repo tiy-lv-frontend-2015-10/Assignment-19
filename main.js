@@ -95,9 +95,10 @@ router.on('route:name', function(objectId) {
 		var template2=$('#personTemplate').text();
 		var personHtml = Mustache.render(template2,personObj);
 		$("#personDiv").html(personHtml);
+		$("#contactsDiv").hide();
   	}
   })
-  console.log(name);
+  
 
   
  
