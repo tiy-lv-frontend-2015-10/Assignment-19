@@ -71,6 +71,5 @@ router.on('route:name', function(objectId) {
 router.on('route:index', function(){
   $("#contactList").hide();
   $("#contacts").show();
-
 });
 

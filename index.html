@@ -6,32 +6,37 @@
   <title>Assignment 19</title>
 </head>
 <body>
+  <div class="container">
+    <div id="title"> <h1>The Homies</h1></div>
 
-<div id="myContacts"><a href="/"> My Contacts </a></div>
+    <div id="myContacts">
+      <ul>
+        <li>
+          <a href="/"> My Contacts: </a>
+        </li>
+      </ul>
+    </div>
 
-<div id="contacts"></div>
+    <div id="contacts"></div>
 
-<div id="contactList"></div>
-
+    <div id="contactList"></div>
+  </div>
 
 
 <script type="x-tmpl-mustache" id="nameTemplate">
 
   {{#data}}
   <ul>
-    <li><a href="/name/{{objectId}}">{{First}} {{Last}}</a></li>
+    <li><a href="/name/{{objectId}}" class="entypo-user"> {{First}} {{Last}}</a></li>
   </ul>
   {{/data}}
 </script>
 <script type = "x-tmpl-mustache" id="contactTemplate">
   {{#data}}
-  <ul>
-    <li>{{First}}</li>
-    <li>{{Last}}</li>
-    <li>{{Email}}</li>
-    <li>{{phone}}</li>
-    <li>{{Location}}</li>
-  </ul>
+    <p class="entypo-user"> {{First}} {{Last}}</p>
+    <p>{{Email}}</p>
+    <p>{{phone}}</p>
+    <p>{{Location}}</p>
   {{/data}}
 </script>
 
