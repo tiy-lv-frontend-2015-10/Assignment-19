@@ -4,13 +4,14 @@
 	<meta charset="UTF-8">
 	<title>Contacts</title>
 	<link rel="stylesheet" type="text/css" href="main.css"/>
-	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="main">
-		<h1><a href="/">Contacts</a></h1>
-		<ul id="contacts"></ul>
-		<ul id="people"></ul>
+		<h1><a id="main1" href="/">Contacts</a></h1>
+		<div id="contacts"></div>
+		<div id="people"></div>
 	</div>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -20,15 +21,15 @@
 	<script type="text/javascript" src="main.js"></script>
 	<script type="x-tmpl-mustache" id="contactTemplate">
 	{{#contact}}
-		<li><a href="/name/{{objectId}}">{{name}}</a></li>
+		<p><i class="fa fa-user"><a href="/name/{{objectId}}">{{name}}</a></i></p>
 	{{/contact}}
 	</script>
 	<script type="x-tmpl-mustache" id="personTemplate">
 	{{#person}}
-		<li>{{name}}</li>
-		<li>{{email}}</li>
-		<li>{{phoneNumber}}</li>
-		<li>{{cityState}}</li>
+		<p><i class="fa fa-user">{{name}}</i></p>
+		<p><i class="fa fa-envelope">{{email}}</i></p>
+		<p><i class="fa fa-phone">{{phoneNumber}}</i></p>
+		<p><i class="fa fa-thumb-tack">{{cityState}}</i></p>
 	{{/person}}
 	</script>
 </body>
