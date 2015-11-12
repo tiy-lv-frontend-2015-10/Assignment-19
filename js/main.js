@@ -52,7 +52,7 @@ $(document).ready (function() {
   });*/
 
 
-  $("a").on("click", function(e){
+  $("body").on("click", "a", function(e){
     e.preventDefault();
     var href = $(this).attr("href");
     href = href.substr(1);
