@@ -102,6 +102,7 @@ router.on('route:name', function(objectId) {
 		var personHtml = Mustache.render(template2,personObj);
 		$("#personDiv").html(personHtml);
 		$("#contactsDiv").hide();
+		$("#personDiv").show();
 
   	}
   })
