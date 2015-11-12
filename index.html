@@ -14,23 +14,22 @@
 <div id="contactList"></div>
 
 <script type="text/javascript" id="nameTemplate">
-
+  {{#data}}
   <ul>
-    {{#data}}
     <li><a href="/name/{{objectId}}">{{First}}</a></li>
-    {{/data}}
   </ul>
+  {{/data}}
 </script>
 <script type = "x-tmpl-mustache" id = "contactTemplate">
-  <ul>
   {{#data}}
+  <ul>
     <li>{{First}}</li>
     <li>{{Last}}</li>
     <li>{{Email}}</li>
     <li>{{phone}}</li>
     <li>{{Location}}</li>
-  {{/data}}
   </ul>
+  {{/data}}
 </script>
 
 
