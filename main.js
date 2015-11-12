@@ -1,8 +1,9 @@
-$('a').on('click', function(e){
+$('body').on('click','a', function(e){
   e.preventDefault();
   var href = $(this).attr('href');
   href = href.substr(1);
   router.navigate(href, {trigger:true});
+
 });
 
 var Contact = Backbone.Model.extend({
