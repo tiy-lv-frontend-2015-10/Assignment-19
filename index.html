@@ -5,9 +5,31 @@
   <title>Backbone Example</title>
 </head>
 <body>
- <a href="/Restaurant/eYW8laKI7T">Restaurant</a>
-<div id="class"</div>
-<ul id="Restaurants"></ul>
+    
+    <!-- For testing
+    <a href="/contact/ha1fpAzf8I">Contact</a>
+    -->
+
+    <div id="listContact"></div>
+    <script type = "x-teml-mustache" id="testTemplate">
+        <div>My Peeps</div>
+        {{#Contact}}
+            <div>
+            <a href="/contact/{{objectId}}"><img src=""><span>{{name}}</span></a>
+            </div>
+        {{/Contact}}
+    </script>
+
+    <script type="x-teml-mustache" id="contactDetailsTemplate">
+        <div>
+            <div class="details-photo"></div>
+            <div>{{name}}</div>
+            <div>{{eMail}}</div>
+            <div>{{phoneNumber}}</div>
+            <div>{{city}}</div>
+        </div>
+    </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
