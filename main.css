@@ -1,42 +1,149 @@
-#listTemplate {
+#container {
 
+}
+
+#header {
+  width: 388px;
+  background-color: #81BC39;
+  color: white;
+  margin: 0 auto;
+  height: 25px;
+  border: 1px solid black;
+  padding: 0px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+#header h3 {
+  font-family: "Arial", "sans-serif"; 
+}
+
+#listTemplate {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.fullName {
+  font-family: "Arial", "sans-serif";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  border: 1px solid black;
+  padding-left: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3;
+}
+
+.fullName p:before {
+  content: url(assets/profile_small.png);
+}
+
+.fullListName {
+  font-family: "Arial", "sans-serif";
+  font-size: 12px;
+  text-align: left;
+  border: 1px solid black;
+  padding-left: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3;
+}
+
+#bigHeader {
+  width: 398px;
+  background-color: #81BC39;
+  margin: 0 auto;
+  height: 150px;
+  border: 1px solid black;
+
+}
+
+#bigHeader p {
+  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-right: 0px;
+  height: 5px;
+  padding-left: 5px;
+  width: 20px;
+  margin: 0;
+}
+
+#bigHeader img {
+  margin: 0 auto;
+  padding-left: 140px;
+  padding-top: 0px;
 }
 
 #singleTemplate {
 
 }
 
-#mustacheTemplate {
-
-}
-
-
-#theListTemplate {
-
-}
-
-.fullName {
-  font-family: "Arial", "sans-serif";
-  font-weight: bold;
-  font-size: 12px;
-}
-
 #theSingleTemplate {
 
 }
 
-.fullName2 {
-
-}
-
 .email {
-
+  font-family: "Arial", "sans-serif";
+  font-size: 12px;
+  text-align: left;
+  border: 1px solid black;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3;
+  height: 30px;
 }
 
 .phone {
-
+  font-family: "Arial", "sans-serif";
+  font-size: 12px;
+  text-align: left;
+  border: 1px solid black;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3;
+  height: 30px;
 }
 
 .citySt {
+  font-family: "Arial", "sans-serif";
+  font-size: 12px;
+  text-align: left;
+  border: 1px solid black;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3;
+  height: 30px;
+}
 
+
+.fa-arrow-left {
+  color: black;
+}
+
+.fa-arrow-left a {
+  color: black;
+  text-decoration: none;
+}
+
+.fa-user{
+    color: black ;
+}
+
+.fa-envelope{
+    color: black ;
+}
+
+.fa-phone{
+    color: black ;
+}
+
+.fa-globe{
+    color: black ;
 }

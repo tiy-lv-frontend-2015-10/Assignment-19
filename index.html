@@ -7,31 +7,35 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
-  <div id="listTemplate"></div>
-
+  <div id="container">
+    <div id="header">
+    <h3>My Peeps</h3>
+    </div>
+    <div id="listTemplate">  
+    </div>
+  </div>
   <div id="singleTemplate"></div>
 
 <script type= "x-tmpl-mustache" id="theListTemplate">
 
-
-            <div id="theListTemplate">
               {{#data}}
                 <div class="fullName">                 
-                    <p><span>{{Fname}}&nbsp</span><span>{{Lname}}</span></p>
+                    <p>&nbsp;&nbsp;&nbsp;{{Fname}}&nbsp</span><span>{{Lname}}</p>
                 </div>
 
                 {{/data}}
-            </div>
 
-            <div id="theSingleTemplate">
+         <div id="theSingleTemplate">
                {{#data}}
-                   <div class="fullName">                 
-                    <p><span>{{Fname}}&nbsp</span><span>{{Lname}}</span></p>
+                  <div id="bigHeader"><p><a href="#"><span class="fa {{icon}} fa-arrow-left"></span></a></p><img src = "assets/profile.png"></div>
+                   <div class="fullListName">                 
+                    <p><span class="fa {{icon}} fa-user"></span>
+                    <span>&nbsp;&nbsp;{{Fname}}&nbsp</span><span>{{Lname}}</span></p>
                 </div>
-                  <p class="phone">Phone: {{Phone}}</p>
-                  <p class="email">email: {{email}}</p>
-                  <p class="citySt">City_State: {{City_State}}</p>
+                  <p class="phone"><span class="fa {{icon}} fa-phone"></span>&nbsp;&nbsp;
+                  {{Phone}}</p>
+                  <p class="email"><span class="fa {{icon}} fa-envelope"></span>&nbsp;&nbsp;{{email}}</p>
+                  <p class="citySt"><span class="fa {{icon}} fa-globe"></span>&nbsp;&nbsp;{{City_State}}</p>
                 {{/data}}
             </div>
 
