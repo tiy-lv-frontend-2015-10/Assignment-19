@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <title>Assignment 19</title>
+</head>
+<body>
+  <div class="container">
+    <div id="title"> <h1>The Homies</h1></div>
+
+    <div id="myContacts">
+      <ul>
+        <li>
+          <a href="/"> My Contacts: </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="contacts"></div>
+
+    <div id="contactList"></div>
+  </div>
+
+
+<script type="x-tmpl-mustache" id="nameTemplate">
+    {{#data}}
+    <ul>
+      <li><a href="/name/{{objectId}}" class="entypo-user" id='nameContacts'> {{First}} {{Last}}</a></li>
+    </ul>
+    {{/data}}
+</script>
+<script type = "x-tmpl-mustache" id="contactTemplate">
+  {{#data}}
+    <ul>
+      <li class="entypo-user"> {{First}} {{Last}}</li>
+      <li class="entypo-mail"> {{Email}}</li>
+      <li class="entypo-phone"> {{phone}}</li>
+      <li class="entypo-target"> {{Location}}</li>
+    </ul>
+  {{/data}}
+</script>
+
+
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.js"></script>
+
+  <script type="text/javascript" src="backbone-parse.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

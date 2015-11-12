@@ -1,0 +1,43 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  color: grey;
+}
+
+.container {
+  width: 500px;
+  border: 1px solid black;
+  margin: auto;
+  border-radius: 10px;
+  border-color: #e3e3e3;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#title {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #81bc39;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  border-color: #e3e3e3;
+  color: white;
+}
+
+#nameContacts {
+  border-bottom: 1px solid black;
+  border-color: #e3e3e3;
+}
+
+#myContacts {
+  font-size: 20px;
+}
