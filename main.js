@@ -2,8 +2,8 @@ var Contact = Backbone.Model.extend({
   initialize: function () {
     console.log("A new contact has been created");
   },
-  _parse_class_name:"Contact",
- 
+  _parse_class_name: "Contact",
+  idAttribute: "objectId"
 });
 
 var Contacts = Backbone.Collection.extend({
@@ -74,6 +74,22 @@ ContactCollection.fetch({
 
 //router//
 
+var Router= Backbone.Router.extend({
+	initialize:function() {
+		Backbone.history.start({pushState: true});
+
+	},
+
+	routes: {
+		"name/:objectId":"name"
+	}
+});
+
+var router = new Router();
+
+router.on('route:name', function(objectId){
+	var name = new Contact({objectId,objectId});
+})
 
 
 
