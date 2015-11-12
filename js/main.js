@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var Contacts = Backbone.Model.extend({
 	initialize: function () {
 		console.log("New contact created !");
@@ -19,12 +21,13 @@ var Contacts = Backbone.Collection.extend({
   model: Contacts,
   _parse_class_name: "Contacts"
 });
+
 var ContactsCollection = new Contacts();
 
 
 ContactsCollection.fetch({
   success: function(resp) {
-  var personObj = {"person" : resp.toJSON()};
+
   var nameTemplate = $("#nameTemplate").text();
   var nameHTML = Mustache.render(nameTemplate, personObj);
     $("#names").html(nameHTML);
@@ -32,18 +35,15 @@ ContactsCollection.fetch({
     },error: function(err){
       console.log("error: ", err);
     }
+  $(this).hide();
 });
 
-
-
-
-/*var Router = Backbone.Router.extend({
+var Router = Backbone.Router.extend({
   initialize: function () {
     Backbone.history.start({pushState: true});
   }
   routes: {
     "name":"name",
-    "": "index"
   }
 });
 
@@ -60,14 +60,12 @@ router.on("route: index", function () {
 
 router.on("route: name", function(){
   console.log("name");
+});
+
+router.on("route: name", function() {
+  console.lgo()
 })
 
-
-
-
-
-
-
-*/
+});
 
 
