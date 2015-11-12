@@ -1,6 +1,8 @@
+//Model
+    
 var Contacts = Backbone.Model.extend({
   initialize: function () {
-    console.log("A new song has been created");
+    console.log("Contact List");
   },
   defaults: {
     name: null,
@@ -36,6 +38,7 @@ var contact = new Contacts({
     email: "mike.sweeney@theironyard.com"
 });
 
+    
 var Contacts = Backbone.Collection.extend({
   model: Contacts,
   _parse_class_name: "Contacts"
@@ -49,23 +52,20 @@ var ContactsCollections = new Contacts();
         console.log("success: ", response);
           
           var parseModel = {
-              contactData: response.models;
+              listData: response.models
           };
-         var dataText = $("#data").text();
+         var dataText = $("#dataList").text();
           var dataRender = Mustache.render(dataText, parseModel);
           $("#contactDiv").html(dataRender); 
       }, error: function (err) {
         console.log("error: ", err);
-      }
-    })
-  },
+      },
+    
   error: function (err) {
     console.log(err)
   }
-
 });
 
-var 
 
 var Router = Backbone.Router.extend({
     initialize: function () {
@@ -86,6 +86,8 @@ router.on('route:index', function() {
 router.on('route:contact', function () {
     console.log("Contact Page");
 });
+
+
 
 $("a").on('click', function(e){
     e.preventDefault();
