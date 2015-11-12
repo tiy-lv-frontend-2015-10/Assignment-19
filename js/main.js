@@ -93,7 +93,7 @@ router.on('route:name', function (objectId) {
 
 
 
-$("a").on('click', "a", function(e){
+$("#container").on('click', "a", function(e){
     e.preventDefault();
     var href = $(this).attr('href');
     href = href.substr(1);

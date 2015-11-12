@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address Book</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
+   <div id="container>">
     <div><h1>Contact Book</h1></div>
     
     <p><a></a></p>
@@ -28,7 +30,7 @@
   <script src="js/main.js"></script>
   <script type="x-tmpl-mustache" id="dataList">
     {{#listData}}    
-        <p><span class="fa fa-user"></span><a href="/">{{attributes.name}}</a></p>
+        <p><span class="fa fa-user"></span><a href="">{{attributes.name}}</a></p>
     {{/listData}}
     </script>
   <script type="x-tmpl-mustache" id="dataDetail">
@@ -39,5 +41,6 @@
     <p>{{attributes.location}}</p>
   {{/detailData}}
     </script>
+    </div>
 </body>
 </html>
