@@ -39,6 +39,7 @@ var Contact = Backbone.Model.extend({
   idAttribute:"objectId"
 });
 
+
 var Contacts = Backbone.Collection.extend({
   model: Contact,
   _parse_class_name: "Contact"
@@ -53,7 +54,6 @@ contactsCollection.fetch({
     $("#listContact").html(info);
 
     makeRoutes();
-
 
   }, error: function (err){
     console.log("error:", err);
@@ -72,10 +72,6 @@ var Router = Backbone.Router.extend({
 
     routes: {
       "contact/:objectId": "contact",
-      "name": "name",
-      "eMail": "eMail",
-      "phoneNumber": "phoneNumber",
-      "city": "city",
       "": "index"
     }
 
@@ -99,6 +95,3 @@ function makeRoutes() {
     router.navigate(href, {trigger:true}); // november 11 class//
   });
 }
-
-
-
