@@ -7,7 +7,11 @@
 </head>
 <body>
 <div id="container">
-	<h1><a href="/">Contacts</a></h1>
+
+	<h1 id="myPeeps">My Peeps</h1>
+	<div id="contactHeader">
+		<span id="arrow"><a href="/">test</a></span>
+	</div>
 	<div id="contactsDiv"></div>
 	<div id="personDiv"></div>
 </div>
@@ -23,18 +27,19 @@
 
 <script id="contactTemplate" type="x-tmpl-mustache">
 	{{#data}}
-	<div id="nameTemp"><a href="/name/{{objectId}}">{{fName}} {{lName}}</a></div>
-	
+	<ul>
+	<li id="nameTemp"><a href="/name/{{objectId}}">{{fName}} {{lName}}</a></li>
+	</ul>
 	{{/data}}
 </script>
 
 <script id="personTemplate" type="x-tmpl-mustache">
 	{{#data}}
 	<ul>
-	<li>{{fName}} {{lName}}</li>
-	<li>{{email}}</li>
-	<li>{{phoneNumber}}</li>
-	<li>{{location}}</li>
+	<li class="person"><span>{{fName}} {{lName}}</span</li>
+	<li class="person"><span>{{email}}<span></li>
+	<li class="person"><span>{{phoneNumber}}</span></li>
+	<li class="person"><span>{{location}}</span></li>
 	</ul>
 	{{/data}}
 </script>

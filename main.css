@@ -1,3 +1,20 @@
+#myPeeps {
+	background: #81BC39;
+	padding: 0;
+	margin:0;
+	height:60px;
+	font-size: 22px;
+	position: relative;
+}
+a {
+	text-decoration: none;
+}
+#myPeeps a {
+	color:#fff;
+	position: relative;
+	top:15px;
+	left:15px;
+}
 #container {
 	width:800px;
 }
@@ -9,17 +26,28 @@ li {
 	background-color: #F7F7F7;
 	list-style:none;
 	height:50px;
-	border-bottom:1px solid black;
+	border-bottom:1px solid #E7E7E7;
+	position: relative;
+	padding-left:20px;
 }
 
-a {
+#nameTemp a {
 	text-decoration: none;
 	color:black;
+	position: relative;
+	top:20px;
 }
 
-#nameTemp {
-	background-color: #F7F7F7;
-	list-style:none;
-	height:50px;
-	border-bottom:1px solid black;
+#contactHeader {
+	background: #A7D076;
+	height:200px;
+	display: none;
 }
+
+.person span {
+	position: relative;
+	top:20px;
+}
+
+
+

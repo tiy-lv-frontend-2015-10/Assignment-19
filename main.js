@@ -90,6 +90,8 @@ var router = new Router();
 router.on('route:index', function() {
 	$("#contactsDiv").show();
 	$("#personDiv").hide();
+	$("#myPeeps").show();
+	$("#contactHeader").hide();
 
 })
 
@@ -102,6 +104,8 @@ router.on('route:name', function(objectId) {
 		var personHtml = Mustache.render(template2,personObj);
 		$("#personDiv").html(personHtml);
 		$("#contactsDiv").hide();
+		$("#myPeeps").hide();
+		$("#contactHeader").show();
 		$("#personDiv").show();
 
   	}
