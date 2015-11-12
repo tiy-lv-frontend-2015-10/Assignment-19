@@ -7,10 +7,12 @@
 </head>
 <body>
 <div id="container">
-
-	<h1 id="myPeeps">My Peeps</h1>
+	<div id="myPeeps">
+	<h1>My Peeps</h1>
+	</div>
 	<div id="contactHeader">
-		<span id="arrow"><a href="/">test</a></span>
+		<span id="arrow"><a href="/"><span class="typicons-left"></span></a></span>
+		<img id="defaultImg" src="assets/default.png">
 	</div>
 	<div id="contactsDiv"></div>
 	<div id="personDiv"></div>
@@ -36,10 +38,10 @@
 <script id="personTemplate" type="x-tmpl-mustache">
 	{{#data}}
 	<ul>
-	<li class="person"><span>{{fName}} {{lName}}</span</li>
-	<li class="person"><span>{{email}}<span></li>
-	<li class="person"><span>{{phoneNumber}}</span></li>
-	<li class="person"><span>{{location}}</span></li>
+	<li class="person"><span class="typicons-user icons"></span><span>{{fName}} {{lName}}</span</li>
+	<li class="person"><span class="maki-post icons"></span><span>{{email}}<span></li>
+	<li class="person"><span class="typicons-mobile icons"></span><span>{{phoneNumber}}</span></li>
+	<li class="person"><span class="typicons-world icons"></span><span>{{location}}</span></li>
 	</ul>
 	{{/data}}
 </script>

@@ -1,20 +1,47 @@
+@import url(http://weloveiconfonts.com/api/?family=maki|typicons|zocial);
+
+/* maki */
+[class*="maki-"]:before {
+  font-family: 'maki', sans-serif;
+}
+
+/* typicons */
+[class*="typicons-"]:before {
+  font-family: 'Typicons', sans-serif;
+}
+[class*="typicons-left"]:before {
+  font-family: 'Typicons', sans-serif;
+  font-size: 40px;
+  color:#000;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+
+
+
 #myPeeps {
 	background: #81BC39;
 	padding: 0;
 	margin:0;
 	height:60px;
-	font-size: 22px;
 	position: relative;
+	color:#fff;
 }
 a {
 	text-decoration: none;
 }
-#myPeeps a {
-	color:#fff;
+
+h1 {
+	font-size: 22px;
 	position: relative;
-	top:15px;
+	top:20px;
 	left:15px;
 }
+
 #container {
 	width:800px;
 }
@@ -42,11 +69,29 @@ li {
 	background: #A7D076;
 	height:200px;
 	display: none;
+	position: relative;
 }
 
 .person span {
 	position: relative;
 	top:20px;
+}
+
+.icons {
+	padding-right: 10px;
+}
+
+#arrow {
+	position: relative;
+  	left:20px;
+  	top:20px;
+}
+
+#defaultImg {
+	border-radius:70px;
+	position:absolute;
+	top:20px;
+	left:300px;
 }
 
 
