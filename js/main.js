@@ -85,9 +85,14 @@ router.on('route:index', function() {
     console.log("Home Page");
 });
 
-router.on('route:name', function (objectId) {
+/*router.on('route:name', function (objectId) {
     var person = new Contacts ({objectId : objectId});
     person.fetch({});
+    console.log("Name");
+});*/
+router.on('route:name', function (objectId) {
+    person.fetch({});
+    var person = new Contacts ({objectId : objectId});
     console.log("Name");
 });
 
