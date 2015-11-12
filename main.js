@@ -87,6 +87,10 @@ var Router = Backbone.Router.extend({
 
 var router = new Router();
 
+router.on('route:index', function() {
+	$("#contactsDiv").show();
+})
+
 router.on('route:name', function(objectId) {
   var name = new Contact({objectId: objectId});
   name.fetch({
