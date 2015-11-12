@@ -6,12 +6,11 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-<h1><a href="/">Contacts</a></h1>
-
-
-<div id="contactsDiv"></div>
-<div id="personDiv"></div>
-
+<div id="container">
+	<h1><a href="/">Contacts</a></h1>
+	<div id="contactsDiv"></div>
+	<div id="personDiv"></div>
+</div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -24,9 +23,8 @@
 
 <script id="contactTemplate" type="x-tmpl-mustache">
 	{{#data}}
-	<ul>
-	<li><a href="/name/{{objectId}}">{{fName}} {{lName}}</a></li>
-	</ul>
+	<div id="nameTemp"><a href="/name/{{objectId}}">{{fName}} {{lName}}</a></div>
+	
 	{{/data}}
 </script>
 
