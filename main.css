@@ -43,7 +43,7 @@ h1 {
 }
 
 #container {
-	width:800px;
+	width:600px;
 }
 ul {
 	padding:0;
@@ -52,17 +52,29 @@ ul {
 li {
 	background-color: #F7F7F7;
 	list-style:none;
-	height:50px;
+	height:60px;
 	border-bottom:1px solid #E7E7E7;
 	position: relative;
-	padding-left:20px;
+	padding-left:15px;
 }
 
 #nameTemp a {
 	text-decoration: none;
 	color:black;
+	padding-left:10px;
+
+}
+
+
+#nameTemp:before {
+	background-image:url('assets/default2.png');
+	border-radius:20px;
+	content: "";
+	display: inline-block;
 	position: relative;
-	top:20px;
+	top:10px;
+  	width: 40px;
+  	height: 40px;
 }
 
 #contactHeader {
@@ -88,10 +100,10 @@ li {
 }
 
 #defaultImg {
-	border-radius:70px;
+	border-radius:100px;
 	position:absolute;
 	top:20px;
-	left:300px;
+	left:210px;
 }
 
 
