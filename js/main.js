@@ -47,7 +47,6 @@ var Contacts = Backbone.Collection.extend({
 var ContactsCollections = new Contacts();
 
     ContactsCollections.fetch({
-        
       success: function(response) {
         console.log("success: ", response);
           
@@ -73,7 +72,10 @@ var Router = Backbone.Router.extend({
     },
     routes: {
         "": "index",
-        "contact": "contact"
+        "name": "name",
+        "phone": "phone",
+        "email": "email",
+        "location": "location"
     }
 });
 
@@ -83,13 +85,15 @@ router.on('route:index', function() {
     console.log("Home Page");
 });
 
-router.on('route:contact', function () {
-    console.log("Contact Page");
+router.on('route:name', function (objectId) {
+    var person = new Contacts ({objectId : objectId});
+    person.fetch({});
+    console.log("Name");
 });
 
 
 
-$("a").on('click', function(e){
+$("a").on('click', "a", function(e){
     e.preventDefault();
     var href = $(this).attr('href');
     href = href.substr(1);

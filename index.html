@@ -11,8 +11,7 @@
     <div><h1>Contact Book</h1></div>
     
     <p><a></a></p>
-    <p><a href="/">Home</a></p>
-    <p><a href="/contact">Contact</a></p>
+    
 
     <div id="contactDiv">
     </div>
@@ -29,8 +28,16 @@
   <script src="js/main.js"></script>
   <script type="x-tmpl-mustache" id="dataList">
     {{#listData}}    
-        <p><span class="fa fa-user"></span><a href="#">{{attributes.name}}</a></p>
+        <p><span class="fa fa-user"></span><a href="/">{{attributes.name}}</a></p>
     {{/listData}}
+    </script>
+  <script type="x-tmpl-mustache" id="dataDetail">
+  {{#detailData}}
+    <p>{{attributes.name}}</p>
+    <p>{{attritubes.phone}}</p>
+    <p>{{attributes.email}}</p>
+    <p>{{attributes.location}}</p>
+  {{/detailData}}
     </script>
 </body>
 </html>
