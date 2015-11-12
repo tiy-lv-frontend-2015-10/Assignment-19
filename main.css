@@ -1,0 +1,21 @@
+
+#container {
+	margin: 0 auto;
+	width: 1200px;
+}
+
+#index-side {
+	display: inline-block;
+	margin-right: 20px;
+	background-color: lightblue;
+	width: 40%;
+	height: 400px;
+}
+
+#page-display {
+	display: inline-block;
+	vertical-align: top;
+	background-color: grey;
+	width: 40%;
+	height: 400px;
+}
