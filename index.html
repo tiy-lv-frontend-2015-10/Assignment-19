@@ -2,54 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>Assignment 19</title>
 </head>
 <body>
-  <a href="/"></a>
-  <a href="/"></a>
-  <a href="/"></a>
-  <a href="/"></a>
-  <a href="/"></a>
 
-
-
+<div id="myContacts"> My Contacts </div>
 
 <div id="contacts"></div>
 
 <div id="contactList"></div>
 
+<script type="text/javascript" id="nameTemplate">
 
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="nameTemplate"></script>
-
-<script type = "x-tmpl-mustache" id = "contactTemplate">
-
-  {{#data}}
   <ul>
+    {{#data}}
+    <li><a href="/name/{{objectId}}">{{First}}</a></li>
+    {{/data}}
+  </ul>
+</script>
+<script type = "x-tmpl-mustache" id = "contactTemplate">
+  <ul>
+  {{#data}}
     <li>{{First}}</li>
     <li>{{Last}}</li>
     <li>{{Email}}</li>
     <li>{{phone}}</li>
     <li>{{Location}}</li>
-  </ul>
-
   {{/data}}
-
-
-
-
-
-
-
-
-
+  </ul>
 </script>
 
 
