@@ -25,9 +25,6 @@ var Contact = Backbone.Model.extend({
     if (!attrs.phoneNumber) {
       return " Phone number  is required";
     }
-    if (isNaN(Number(attrs.phoneNumber))) {
-      return "Phone number should be a number";
-    }
     if (!attrs.city){
       return "City is required"
     }
@@ -46,24 +43,6 @@ var Contacts = Backbone.Collection.extend({
 });
 
 var contactsCollection = new Contacts();
-contactsCollection.fetch({
-  success: function(resp){
-    var dataBase = {"Contact": resp.toJSON()};
-    var template = $("#testTemplate").text();
-    var info = Mustache.render(template, dataBase);
-    $("#listContact").html(info);
-
-    makeRoutes();
-
-  }, error: function (err){
-    console.log("error:", err);
-  }
-});
-
-
-var contacts = Backbone.Collection.extend({
-  model: Contact
-});
 
 var Router = Backbone.Router.extend({
     initialize: function (){
@@ -73,25 +52,39 @@ var Router = Backbone.Router.extend({
     routes: {
       "contact/:objectId": "contact",
       "": "index"
+    },
+
+    index: function(){
+      contactsCollection.fetch({
+        success: function(resp){
+          var dataBase = {"Contact": resp.toJSON()};
+          var template = $("#testTemplate").text();
+          var info = Mustache.render(template, dataBase);
+          $("#listContact").html(info);
+        }, error: function (err){
+          console.log("error:", err);
+        }
+      });
     }
 
-  });
-
-function makeRoutes() {
-  
-  var router = new Router();
-  router.on("route:contact", function(objectId){
-    var contact = new Contact({
-      objectId: objectId});
-    contact.fetch();
-    console.log(contact);
-  });
+});
 
 
-  $("a").on('click', function(e){
-    e.preventDefault();
-    var href = $(this).attr('href');
-    href = href.substr(1);
-    router.navigate(href, {trigger:true}); // november 11 class//
-  });
-}
+
+var router = new Router();
+router.on("route:contact", function(objectId){
+  console.log(objectId);
+  var contact = contactsCollection.get(objectId).toJSON();
+  var template = $("#contactDetailsTemplate").text();
+  var info = Mustache.render(template, contact);
+  $("#contactDetail").html(info);
+});
+
+
+$("body").on('click', "a", function(e){
+  e.preventDefault();
+  var href = $(this).attr('href');
+  href = href.substr(1);
+  router.navigate(href, {trigger:true}); // november 11 class//
+});
+
