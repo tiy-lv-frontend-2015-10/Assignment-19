@@ -9,26 +9,30 @@
 <body>
 
   <div id="container">
-    <div id="header">
-    <h3>My Peeps</h3>
-    </div>
-    <div id="listTemplate">  
-    </div>
+    
+    <div id="listTemplate"></div>
+    <div id="singleTemplate"></div>
   </div>
-  <div id="singleTemplate"></div>
+    
+
 
 <script type= "x-tmpl-mustache" id="theListTemplate">
-
+              <div id="header">
+                <h3>My Peeps</h3>
+              </div>
               {{#data}}
+            
                 <div class="fullName">                 
                     <p>&nbsp;&nbsp;&nbsp;<a href="/person/{{objectId}}">{{Fname}}&nbsp</span><span>{{Lname}}</a></p>
                 </div>
 
                 {{/data}}
 
-         <div id="theSingleTemplate">
+</script>
+<script type="x-tmpl-mustache" id="theSingleTemplate">
+         
                {{#data}}
-                  <div id="bigHeader"><p><a href="#"><span class="fa {{icon}} fa-arrow-left"></span></a></p><img src = "assets/profile.png"></div>
+                  <div id="bigHeader"><p><a href="/index"><span class="fa {{icon}} fa-arrow-left"></span></a></p></div>
                    <div class="fullListName">                 
                     <p><span class="fa {{icon}} fa-user"></span>
                     <span>&nbsp;&nbsp;{{Fname}}&nbsp</span><span>{{Lname}}</span></p>
@@ -38,20 +42,8 @@
                   <p class="email"><span class="fa {{icon}} fa-envelope"></span>&nbsp;&nbsp;{{email}}</p>
                   <p class="citySt"><span class="fa {{icon}} fa-globe"></span>&nbsp;&nbsp;{{City_State}}</p>
                 {{/data}}
-            </div>
 
       </script>
-
-
- <!-- <script type="x-tmpl-mustache" id="theListTemplate">
-    {{#data}}
-      <p>City_State: {{City_State}}</p>
-      <p>Fname: {{Fname}}</p>
-      <p>Lname: {{Lname}}</p>
-      <p>Phone: {{Phone}}</p>
-      <p>email: {{email}}</p>
-    {{/data}}
-  </script> -->
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>

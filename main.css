@@ -39,6 +39,21 @@
   content: url(assets/profile_small.png);
 }
 
+.fullName a {
+  text-decoration: none;
+  color: black;
+}
+
+.fullName a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.fullName a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 .fullListName {
   font-family: "Arial", "sans-serif";
   font-size: 12px;
@@ -56,6 +71,9 @@
   margin: 0 auto;
   height: 150px;
   border: 1px solid black;
+  background-image: url("assets/profile.png");
+  background-repeat: no-repeat;
+  background-position: center;
 
 }
 
@@ -69,19 +87,12 @@
   margin: 0;
 }
 
-#bigHeader img {
-  margin: 0 auto;
-  padding-left: 140px;
-  padding-top: 0px;
-}
 
 #singleTemplate {
-
+  width: 400px;
+  margin: 0 auto;
 }
 
-#theSingleTemplate {
-
-}
 
 .email {
   font-family: "Arial", "sans-serif";
