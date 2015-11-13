@@ -21,9 +21,9 @@ var Contacts = Backbone.Model.extend({
   });
 
 
+//Contact list
   var ListsCollection = new Lists();
 
-//Contact list
     ListsCollection.fetch({
       success: function(resp) {
         var taco = {"meat":resp.toJSON()};
@@ -59,11 +59,18 @@ var Contacts = Backbone.Model.extend({
         var personTemplate = $("#personTemplate").text();
         var personHTML = Mustache.render(personTemplate , personInfo);
         $("#info").html(personHTML);
+		  $("#main").hide();
+		  $("#info").show();
       },error:function(err){
         console.log("error " , err);
       }
     })
     });
+	
+	router.on('route:index' , function(){
+		$("#main").show();
+		$("#info").hide();
+	});
 
 
   $("body").on('click', 'a', function(e){
