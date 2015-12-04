@@ -20,16 +20,15 @@ var Contacts = Backbone.Model.extend({
     _parse_class_name: "list"
   });
 
-
 //Contact list
   var ListsCollection = new Lists();
 
-    ListsCollection.fetch({
-      success: function(resp) {
+   ListsCollection.fetch({
+    success: function(resp) {
         var taco = {"meat":resp.toJSON()};
         var mexicoTemplate = $("#mexicoTemplate").text();
-        var mexicoHTML = Mustache.render(mexicoTemplate,taco);
-        $("#main").html(mexicoHTML);
+        var mexicoHTML = Mustache.render(mexicoTemplate,taco);           
+		$("#main").html(mexicoHTML);
         console.log("success: ", resp);
       }, error: function (err) {
         console.log("error: ", err);
@@ -44,21 +43,17 @@ var Contacts = Backbone.Model.extend({
         "name/:objectId":"name",
         "":"index"
       }
-    });
+    });  
 
 //individual info
-
     var router = new Router();
-
     router.on('route:name', function(objectId){
     var person = new Contacts({objectId:objectId});
-  
-    person.fetch({
-      success: function(resp){
-        var personInfo = {'persons': resp.toJSON()};
-        var personTemplate = $("#personTemplate").text();
-        var personHTML = Mustache.render(personTemplate , personInfo);
-        $("#info").html(personHTML);
+    person.fetch({success: function(resp){
+  var personInfo = {'persons': resp.toJSON()};
+  var personTemplate = $("#personTemplate").text();
+  var personHTML = Mustache.render(personTemplate , personInfo);
+  $("#info").html(personHTML);
 		  $("#main").hide();
 		  $("#info").show();
       },error:function(err){
@@ -66,13 +61,10 @@ var Contacts = Backbone.Model.extend({
       }
     })
     });
-	
 	router.on('route:index' , function(){
 		$("#main").show();
 		$("#info").hide();
 	});
-
-
   $("body").on('click', 'a', function(e){
     e.preventDefault();
     var href = $(this).attr('href');
