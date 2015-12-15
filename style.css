@@ -1,0 +1,31 @@
+#listView{
+	border: 1px solid black;
+	width: 28.2em;
+	height: 33.6em;
+	background-color: green;
+	margin: 5em 25em;
+}
+#listView h3{
+	background-color: green;
+	font-size: 30px;
+	text-align: center;
+}
+#names{
+	padding: 0;
+	list-style: none;
+	width: 15em;
+	font-size: 30px;
+	text-align: center;
+}
+#names li{
+	border: 1px solid black;
+	width: 15em;
+	height: 50px;
+	background-color: white;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+
+
