@@ -66,6 +66,7 @@ $(document).ready(function () {
 				$("#info").html(personHTML);
 				$("#main").hide();
 				$("#info").show();
+				
 			},
 			error: function (err) {
 				console.log("error ", err);
@@ -75,7 +76,11 @@ $(document).ready(function () {
 	router.on('route:index', function () {
 		$("#main").show();
 		$("#info").hide();
+		
 	});
+	
+	$("#info").hide();
+	
 	$("body").on('click', 'a', function (e) {
 		e.preventDefault();
 		var href = $(this).attr('href');
