@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var Contacts = Backbone.Model.extend({
+var Contact = Backbone.Model.extend({
 	initialize: function () {
 		console.log("New contact created !");
 	},
@@ -12,60 +12,91 @@ var Contacts = Backbone.Model.extend({
 
   }, 
   _parse_class_name: "Contacts",
-  idAttribute: "objectId",
 });
-
 
 
 var Contacts = Backbone.Collection.extend({
-  model: Contacts,
+  model: Contact,
   _parse_class_name: "Contacts"
 });
 
+
+//names
 var ContactsCollection = new Contacts();
-
-
-ContactsCollection.fetch({
+ContactCollection.fetch({
   success: function(resp) {
+    //contacts
+    var contactsObj = {'data':resp.toJSON()};
+    var template=$('#contactTemplate').text();
+    var contactsHtml = Mustache.render(template,contactsObj);
+    $("#contactsDiv").html(contactsHtml);
+    //person
+    
 
-  var nameTemplate = $("#nameTemplate").text();
-  var nameHTML = Mustache.render(nameTemplate, personObj);
-    $("#names").html(nameHTML);
-      console.log("success: ", resp);
-    },error: function(err){
-      console.log("error: ", err);
-    }
-  $(this).hide();
+
+    },
+  error: function(resp) {
+    console.log(resp);
+  }
 });
+
+
+//router//
 
 var Router = Backbone.Router.extend({
   initialize: function () {
     Backbone.history.start({pushState: true});
-  }
+  },
   routes: {
-    "name":"name",
+    "name/:objectId":"name",
+    "":"index",
+    "test":"test"
   }
 });
 
-var router = new Router ();
-router.on("route: name", function (objectId){
-    var AllContacts = new Contacts({objectId: objectId});
-    Contacts.fetch();
-    console.log(Contacts);
-});
+var router = new Router();
 
-router.on("route: index", function () {
-  console.log("home page");
-});
+router.on('route:index', function() {
+  $("#contactsDiv").show();
+  $("#personDiv").hide();
+  $("#myPeeps").show();
+  $("#contactHeader").hide();
 
-router.on("route: name", function(){
-  console.log("name");
-});
-
-router.on("route: name", function() {
-  console.lgo()
 })
 
+router.on('route:name', function(objectId) {
+  var name = new Contact({objectId: objectId});
+  name.fetch({
+    success: function(resp){
+      var personObj = {'data':resp.toJSON()};
+    var template2=$('#personTemplate').text();
+    var personHtml = Mustache.render(template2,personObj);
+    $("#personDiv").html(personHtml);
+    $("#contactsDiv").hide();
+    $("#myPeeps").hide();
+    $("#contactHeader").show();
+    $("#personDiv").show();
+
+    }
+  })
+  
+
+  
+ 
 });
+
+
+
+
+$("body").on('click',"a", function(e){
+  e.preventDefault();
+  var href = $(this).attr('href');
+  href = href.substr(1);
+  router.navigate(href, {trigger:true})
+});
+
+});
+
+
 
 
