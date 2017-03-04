@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<div id="ContactsDiv">
+
+</div>
+
+    <ul  id="names"></ul>
+  <ul id="info"></ul>
+<p>jhef</p>
+
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-latest.js"></script>
+  <script src="js/backbone-parse.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.js"></script>
+  <script src="js/main.js"></script>
+
+<script id="contactTemplate" type="x-tmpl-mustache">
+  {{#data}}
+  <ul>
+  <li id="nameTemp"><a href="/name/{{objectId}}">{{Name}}</a></li>
+  </ul>
+  {{/data}}
+</script>
+
+<script id="personTemplate" type="x-tmpl-mustache">
+  {{#data}}
+  <ul>
+  <li class="person"><span class="typicons-user icons"></span><span>{name}</span</li>
+  <li class="person"><span class="maki-post icons"></span><span>{{email}}<span></li>
+  <li class="person"><span class="typicons-mobile icons"></span><span>{{phoneNumber}}</span></li>
+  <li class="person"><span class="typicons-world icons"></span><span>{{location}}</span></li>
+  </ul>
+  {{/data}}
+</script>
+
+</body>
+</html>
